@@ -22,8 +22,7 @@ public class User {
     List<String> addresses;
     String role;
 
-    @OneToMany( fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany( fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id",referencedColumnName = "ordid")
-   // List<Comment> comments = new ArrayList<>();
     List<OrderDetails>orderDetails = new ArrayList<>();
 }

@@ -28,7 +28,7 @@ public class OrderDetails {
     String paymentMethod;
     boolean isShipped;
 
-    @OneToMany(mappedBy="order")
+    @OneToMany(mappedBy="orderDetails")
     List<Product>productList = new ArrayList<>();
 
 
