@@ -6,24 +6,26 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long prodId;
+    Long pid;
 
     String skuid;
     Double price;
     Double discountedPrice;
-    Lob description;
+    String description;
     String url;
     String category;
 
-//    @ManyToOne
-//    @JoinColumn(name="ordid", nullable=false)
-//    private OrderDetails details;
+    @ManyToOne
+    OrderDetails orderDetails;
+
 
 }

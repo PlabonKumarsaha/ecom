@@ -12,17 +12,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "user_info")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long uid;
+    Long userid;
     String phoneNo;
     String email;
-    List<String> addresses;
-    String role;
+    String addresses;
+    String userrole;
 
-    @OneToMany( fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id",referencedColumnName = "ordid")
-    List<OrderDetails>orderDetails = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    List<OrderDetails>orderDetails;
 }

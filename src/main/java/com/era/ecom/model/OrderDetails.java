@@ -16,20 +16,22 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "orderDetails")
 public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long ordid;
-    String date;
+    @Column(name = "odate")
+    String orderDate;
     String shipAddress;
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne
     private User user;
     double totalValue;
     String paymentMethod;
     boolean isShipped;
 
-    @OneToMany(mappedBy="orderDetails")
-    List<Product>productList = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Product>productList;
 
 
 
