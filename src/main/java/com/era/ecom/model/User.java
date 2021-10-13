@@ -25,5 +25,5 @@ public class User {
     String addresses;
     String userrole;
     @OneToMany
-  List<OrderDetails>orderDetails;
+    List<OrderDetails>orderDetails;
 }

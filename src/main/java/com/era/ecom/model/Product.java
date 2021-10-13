@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table( name = "product")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="product_id")
@@ -29,7 +30,12 @@ public class Product {
     String url;
 
 
-    @ManyToOne
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(referencedColumnName ="ordid")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "orderid")
     OrderDetails orderDetails;
 
 

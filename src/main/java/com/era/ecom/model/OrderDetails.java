@@ -16,25 +16,29 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "orderDetails")
+@Table(name = "orderdetails")
 public class OrderDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long ordid;
     @Column(name = "odate")
     String orderDate;
+    @Column(name = "address")
     String shipAddress;
+    @Column(name = "total")
+    double totalValue;
+    @Column(name = "paymentMethod")
+    String paymentMethod;
+    @Column(name = "status")
+    boolean shipStatus;
+
     @OneToOne
     private User user;
-    double totalValue;
-    String paymentMethod;
-    boolean isShipped;
 
-    @OneToMany(cascade = CascadeType.ALL)
-
+    @OneToMany(mappedBy = "orderDetails",cascade = CascadeType.ALL,targetEntity = Product.class)
     List<Product>productList;
-//@ManyToOne
-    //User user1;
+
 
 
 }
