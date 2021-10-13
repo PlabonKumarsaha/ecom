@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +24,6 @@ public class User {
     String email;
     String addresses;
     String userrole;
-
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    List<OrderDetails>orderDetails;
+    @OneToMany
+  List<OrderDetails>orderDetails;
 }

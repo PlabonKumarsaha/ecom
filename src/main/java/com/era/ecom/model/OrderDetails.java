@@ -31,8 +31,10 @@ public class OrderDetails {
     boolean isShipped;
 
     @OneToMany(cascade = CascadeType.ALL)
-    List<Product>productList;
 
+    List<Product>productList;
+//@ManyToOne
+    //User user1;
 
 
 }
